@@ -78,3 +78,92 @@ Apa kekurangan yang mungkin terjadi jika menggunakan pendekatan pada Praktikum 2
 Jawaban:
 
 Kekurangan yang mungkin terjadi jika menggunakan pendekatan pada Praktikum 2 untuk menangani routing adalah jika terdapat banyak folder yang harus diakses, maka akan sulit untuk mengelola routingnya. Selain itu, jika terdapat banyak folder, maka akan sulit untuk mengetahui folder mana yang harus diakses terlebih dahulu. Tidak itu saja, pendekataan dengan metode nested routing ini tidak cocok jika ingin mengakses halaman yang selalu berubah, seperti akan mengakses id tertentu karena pastinya akan susah jika harus membuat folder sesuai dengan id yang ada. Sehingga jika ingin mengakses halaman yang selalu berubah atau mengakses id, akan lebih cocok jika menggunakan dynamic routing.
+
+### Praktikum 3
+
+Pada praktikum ketiga, terdapat penerapan pendekatan dengan dynamic routing. Pendekataan ini sangat berguna jika digunakan untuk melakukan routing halaman yang akan diakses berdasarkan ID. Hal ini dikarenakan path yang berubah secara dinamis akan didapatkan dan dapat dengan lebih mudah untuk diakses. Langkah yang saya lakukan pada praktikum ini adalah membuat folder products yang didalamnya terdapat folder bernama [productId], kurung siku pada penamaan akan menandakan bahwa itu adalah path dinamis yang dapat diambil nilainya nanti. Selanjutnya saya membuat file page.tsx di dalam folder products dan [productId]. 
+
+Pada file page.tsx di dalam folder products, saya isikan sebagai berikut
+
+```typescript
+export default function ProductList() {
+    return (
+        <div>
+            <h1>Product List</h1>
+            <h2>Product 1</h2>
+            <h2>Product 2</h2>
+            <h2>Product 3</h2>
+        </div>
+    );
+}
+```
+Dengan output sebagai berikut:
+![Praktikum 3](/assets-report/praktikum-3_products-dynamic.png)
+
+Kemudian pada file page.tsx di dalam folder [productId], saya isikan sebagai berikut
+
+```typescript
+type Props = {
+    params: {
+        productId: string
+    }
+}
+
+export default function ProductDetails({ params }: Props) {
+    return (
+        <h1>Details about product {params.productId}</h1>
+    )
+}
+```
+
+Dengan output sebagai berikut (jika mengisi url dengan /products/1):
+![Praktikum 3](/assets-report/praktikum-3_first-blog-dynamic.png)
+
+Pada praktikum 3 ini terdapat 2 Todo,
+
+Todo pertama adalah menerapkan dynamic route pada praktikum 2, saya melakukannya dengan membuat sebuah folder [blogId] di dalam folder Blog, kemudian saya buat sebuah file page.tsx di dalam folder [blogId] tersebut dan saya isikan dengan kode berikut:
+
+```typescript
+type Props = {
+    params: {
+        blogId: string
+    }
+}
+
+export default function ProductDetails({ params }: Props) {
+    return (
+        <h1>This is Blog {params.blogId}</h1>
+    )
+}
+```
+
+Output dari kode diatas adalah sebagai berikut (jika mengisi url dengan /blogs/1):
+![Praktikum 3](/assets-report/praktikum-3_first-blog-dynamic.png)
+
+Sedangkan jika mengakses /blogs/5, maka outputnya adalah sebagai berikut:
+![Praktikum 3](/assets-report/praktikum-3_fifth-blog-dynamic.png)
+
+Todo kedua adalah dengan menggunakan konsep Nested Routes dan Dynamic Routes, buatlah halaman dengan routing /products/[productId]/reviews/[reviewId]
+
+Langkah yang saya lakukan adalah membuat folder reviews di dalam folder [productId] dan di dalam folder reviews tersebut saya membuat sebuah folder bernama [reviewId]. Selanjutnya saya membuat file page.tsx di dalam folder reviews dan [reviewId]. Isi dari file page.tsx di dalam folder reviews adalah sebagai berikut:
+
+```typescript
+type Props = {
+    params: {
+        productId: string
+        reviewId: string
+    }
+}
+
+export default function ProductDetails({ params }: Props) {
+    return (
+        <>
+            <h1>Here's review for {params.productId}</h1>
+            <h2>Review ID: {params.reviewId}</h2>
+        </>
+    )
+}
+```
+
+Output dari kode di atas adalah sebagai berikut (jika mengisi url dengan /products/5/reviews/1):
+![Praktikum 3](/assets-report/praktikum-3_products-reviews-dynamic.png)
