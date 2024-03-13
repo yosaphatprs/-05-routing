@@ -167,3 +167,62 @@ export default function ProductDetails({ params }: Props) {
 
 Output dari kode di atas adalah sebagai berikut (jika mengisi url dengan /products/5/reviews/1):
 ![Praktikum 3](/assets-report/praktikum-3_products-reviews-dynamic.png)
+
+
+### Praktikum 4
+
+Pada praktikum 4, terdapat penerapan dari penggunaan komponen Link untuk melakukan navigasi antar halaman. Komponen ini sudah disediakan oleh library Next.js sehingga tidak perlu membuat komponen sendiri. Langkah yang saya lakukan adalah melakukan import komponen tersebut dengan kode berikut:
+
+```typescript
+import Link from "next/link";
+```
+
+Kemudian saya ubah kode pada page.tsx dalam folder app dengan kode berikut:
+
+```typescript
+export default function Home() {
+    return (
+        <div>
+            <h1>Welcome to Home</h1>
+            <Link href='/profile'>Profile</Link>
+            <br />
+            <Link href='/about'>About</Link>
+        </div>
+    );
+}
+```
+
+Output dari kode diatas adalah sebagai berikut:
+![Praktikum 4](/assets-report/praktikum-4_home.png)
+
+Jika salah satu link di klik, maka akan pindah halaman sesuai route yang dituju.
+
+Pada praktikum ini terdapat Todo untuk menerapkan komponen Link ini pada praktikum sebelumnya. Disini saya mengambil praktikum 3 sebagai contoh. Saya menerapkan komponen Link pada file page.tsx di dalam folder products untuk melakukan navigasi ke halaman detail produk sesuai dengan Id-nya.
+
+Kode page.tsx dalam folder products saya ubah menjadi sebagai berikut:
+
+```typescript
+import Link from "next/link";
+
+export default function ProductList() {
+    return (
+        <div>
+            <h1>Product List</h1>
+            <Link href='/products/1'>Product 1</Link>
+            <br />
+            <Link href='/products/2'>Product 2</Link>
+            <br />
+            <Link href='/products/3'>Product 3</Link>
+        </div>
+    );
+}
+```
+
+Maka tampilan dari halaman products akan menjadi seperti berikut:
+![Praktikum 4](/assets-report/praktikum-4_products.png)
+
+Selanjutnya jika Product 1 diklik, maka akan menuju halaman detail dari product 1 seperti berikut:
+![Praktikum 4](/assets-report/praktikum-4_products-first.png)
+
+Kemudian jika Product 3 diklik, maka akan menuju halaman detail dari product 3 seperti berikut:
+![Praktikum 4](/assets-report/praktikum-4_products-third.png)
