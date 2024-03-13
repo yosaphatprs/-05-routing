@@ -75,6 +75,6 @@ Dalam praktikum 2 juga terdapat pertanyaan berikut:
 Apa kekurangan yang mungkin terjadi jika menggunakan pendekatan pada Praktikum 2 untuk menangani routing?
 ```
 
-Jawabannya adalah:
+Jawaban:
 
 Kekurangan yang mungkin terjadi jika menggunakan pendekatan pada Praktikum 2 untuk menangani routing adalah jika terdapat banyak folder yang harus diakses, maka akan sulit untuk mengelola routingnya. Selain itu, jika terdapat banyak folder, maka akan sulit untuk mengetahui folder mana yang harus diakses terlebih dahulu. Tidak itu saja, pendekataan dengan metode nested routing ini tidak cocok jika ingin mengakses halaman yang selalu berubah, seperti akan mengakses id tertentu karena pastinya akan susah jika harus membuat folder sesuai dengan id yang ada. Sehingga jika ingin mengakses halaman yang selalu berubah atau mengakses id, akan lebih cocok jika menggunakan dynamic routing.
